@@ -6,14 +6,26 @@
 // Originally modified from:
 // https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
 
+public static class CollectibleType
+{
+  public const int COLLECTIBLE_DIPLOPIA = 347;
+	public const int COLLECTIBLE_CARD_READING = 660;
+	public const int COLLECTIBLE_MOMS_RING = 732;
+
+	public const MAX_VANILLA = COLLECTIBLE_MOMS_RING;
+}
+
+public static class Card
+{
+	public const int CARD_EMPEROR = 5;
+	public const int CARD_CHAOS = 42;
+	public const int CARD_SOUL_JACOB = 97
+
+	public const MAX_VANILLA = CARD_SOUL_JACOB;
+}
+
 void Main()
 {
-	var COLLECTIBLE_DIPLOPIA = 347;
-	var COLLECTIBLE_CARD_READING = 660;
-
-	var CARD_EMP = 5;
-	var CARD_CHAOS = 42;
-
 	var rand = new Random();
 	var seeds = new List<uint>();
 	for(uint i = 0; i < uint.MaxValue; i++)
@@ -22,8 +34,8 @@ void Main()
 		var dropSeed = CalculatePlayerSeed(startSeed);
 		var items = CalculateEdenItems(dropSeed);
 
-		if (items.Active == COLLECTIBLE_DIPLOPIA && items.Passive == COLLECTIBLE_CARD_READING)
-		// && items.Card == CARD_CHAOS)
+		if (items.Active == CollectibleType.COLLECTIBLE_DIPLOPIA && items.Passive == CollectibleType.COLLECTIBLE_CARD_READING)
+		// && items.Card == Card.CARD_CHAOS)
 		{
 			seeds.Add(startSeed);
 			SeedToString(startSeed).Dump();
@@ -40,9 +52,6 @@ void Main()
 // ItemCount impacts the item pick RNG even though eden can't start with an item over id 552
 public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
 {
-	var COLLECTIBLE_MOMS_RING = 732;
-	var MAX_VANILLA_ITEM = COLLECTIBLE_MOMS_RING;
-	
 	var rng = new Rng(dropSeed, 0x1, 0x5, 0x13);
 
 	var trinket = 0;
@@ -74,7 +83,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
 		int itemId = (int)(rng.Next() % itemCount) + 1;
 
 		// Black-list
-		if (itemId > MAX_VANILLA_ITEM)
+		if (itemId > CollectibleType.MAX_VANILLA)
 		{
 			continue;
 		}
@@ -155,7 +164,7 @@ public static int GetCard(uint seed, bool playing = false)
 	return (int)(cardRng.Next() % 22) + 1;
 }
 
-public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = 552)
+public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = CollectibleType.MAX_VANILLA)
 {
 	var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
@@ -169,7 +178,7 @@ public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = 55
 	return seeds;
 }
 
-public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = 54)
+public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Card.MAX_VANILLA)
 {
 	var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
@@ -291,7 +300,7 @@ public enum ItemType {
 
 public static ItemType[] ItemConfig = GetItemConfig();
 public static ItemType[] GetItemConfig() {
-	var itemConfig = new ItemType[733];
+	var itemConfig = new ItemType[CollectibleType.MAX_VANILLA];
 
 	itemConfig[1] = ItemType.Passive;
 	itemConfig[2] = ItemType.Passive;
