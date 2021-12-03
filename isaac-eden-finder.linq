@@ -12,16 +12,16 @@ public static class CollectibleType
 	public const int COLLECTIBLE_CARD_READING = 660;
 	public const int COLLECTIBLE_MOMS_RING = 732;
 
-	public const MAX_VANILLA = COLLECTIBLE_MOMS_RING;
+	public const int MAX_VANILLA = COLLECTIBLE_MOMS_RING;
 }
 
 public static class Card
 {
 	public const int CARD_EMPEROR = 5;
 	public const int CARD_CHAOS = 42;
-	public const int CARD_SOUL_JACOB = 97
+	public const int CARD_SOUL_JACOB = 97;
 
-	public const MAX_VANILLA = CARD_SOUL_JACOB;
+	public const int MAX_VANILLA = CARD_SOUL_JACOB;
 }
 
 void Main()
@@ -49,8 +49,7 @@ void Main()
 	seeds.Select(s => SeedToString(s)).ToArray().Dump();
 }
 
-// ItemCount impacts the item pick RNG even though eden can't start with an item over id 552
-public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
+public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = CollectibleType.MAX_VANILLA)
 {
 	var rng = new Rng(dropSeed, 0x1, 0x5, 0x13);
 
@@ -300,7 +299,7 @@ public enum ItemType {
 
 public static ItemType[] ItemConfig = GetItemConfig();
 public static ItemType[] GetItemConfig() {
-	var itemConfig = new ItemType[CollectibleType.MAX_VANILLA];
+	var itemConfig = new ItemType[CollectibleType.MAX_VANILLA + 1];
 
 	itemConfig[1] = ItemType.Passive;
 	itemConfig[2] = ItemType.Passive;
