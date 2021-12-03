@@ -374,6 +374,7 @@ public static ItemType[] GetItemConfig() {
 	itemConfig[56] = ItemType.Active;
 	itemConfig[57] = ItemType.Familiar;
 	itemConfig[58] = ItemType.Active;
+	itemConfig[59] = ItemType.Active;
 	itemConfig[60] = ItemType.Passive;
 	itemConfig[62] = ItemType.Passive;
 	itemConfig[63] = ItemType.Passive;
