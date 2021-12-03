@@ -110,7 +110,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Collec
 
 			// These are the items that Eden cannot get, which are defined in the "items_metadata.xml"
 			// file with a tag of "noeden"
-			case 53: // Book of Belial (Birthright)
+			case 59: // Book of Belial (Birthright)
 			case 238: // Key Piece 1
 			case 239: // Key Piece 2
 			case 327: // Polaroid
