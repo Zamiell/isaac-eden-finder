@@ -2,6 +2,10 @@
   <IncludeUncapsulator>false</IncludeUncapsulator>
 </Query>
 
+// isaac-eden-finder Script
+// For The Binding of Isaac: Repentance v1.7.5
+// (with Mom's Ring as the final collectible)
+
 // Created by Blade
 // Originally modified from:
 // https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
