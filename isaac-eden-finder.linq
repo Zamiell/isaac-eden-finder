@@ -42,7 +42,8 @@ void Main()
 		// && items.Card == Card.CARD_CHAOS)
 		{
 			seeds.Add(startSeed);
-			SeedToString(startSeed).Dump();
+			var seedString = SeedToString(startSeed);
+			seedString.Dump();
 		}
 
 		if (i % 100000000 == 0)
@@ -92,13 +93,24 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Collec
 		}
 
 		switch (itemId) {
-			// These are the items that Eden cannot get
-			// It includes all of the items with "noeden" in the "items_metadata.xml" file,
-			// as well as all of the gaps in vanilla items
-			case 43: // A gap in vanilla item IDs (pills item)
+			// These are all of the gaps in vanilla items
+			// https://bindingofisaacrebirth.fandom.com/wiki/Items#Item_ID_Gaps
+			case 43:
+			case 61:
+			case 235:
+			case 587:
+			case 613:
+			case 620:
+			case 630:
+			case 648:
+			case 662:
+			case 666:
+			case 718:
+				continue;
+
+			// These are the items that Eden cannot get, which are defined in the "items_metadata.xml"
+			// file with a tag of "noeden"
 			case 53: // Book of Belial (Birthright)
-			case 61: // A gap in vanilla item IDs (tarot card item)
-			case 235: // A gap in vanilla item IDs
 			case 238: // Key Piece 1
 			case 239: // Key Piece 2
 			case 327: // Polaroid
@@ -109,11 +121,11 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Collec
 			case 626: // Knife Piece 1
 			case 627: // Knife Piece 2
 			case 633: // Dogma
-			case 666: // A gap in vanilla item IDs
 			case 668: // Dad's Note
 			case 714: // Recall
 			case 715: // Hold
 				continue;
+
 			default:
 				break;
 		}
