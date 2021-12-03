@@ -42,7 +42,6 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
 {
 	var COLLECTIBLE_MOMS_RING = 732;
 	var MAX_VANILLA_ITEM = COLLECTIBLE_MOMS_RING;
-
 	
 	var rng = new Rng(dropSeed, 0x1, 0x5, 0x13);
 
@@ -98,6 +97,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
 			case 626: // Knife Piece 1
 			case 627: // Knife Piece 2
 			case 633: // Dogma
+			case 666: // A gap in vanilla item IDs
 			case 668: // Dad's Note
 			case 714: // Recall
 			case 715: // Hold
@@ -121,7 +121,6 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = 552)
 		{
 			break;
 		}
-
 	}
 
 	// Hearts and SoulHearts are actually done in Player::Init
@@ -152,6 +151,7 @@ public static int GetCard(uint seed, bool playing = false)
 		// Playing card
 		return (int)(cardRng.Next() % 9) + 23;
 	}
+
 	return (int)(cardRng.Next() % 22) + 1;
 }
 
@@ -165,6 +165,7 @@ public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = 55
 	for(var i = 0; i < seeds.Length; i++) {
 		seeds[i] = new Rng(collRng.Next(), 5, 9, 7);
 	}
+
 	return seeds;
 }
 
@@ -181,6 +182,7 @@ public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = 54)
 	for (var i = 0; i < seeds.Length; i++) {
 		seeds[i] = new Rng(cardsRng.Next(), 5, 9, 7);
 	}
+
 	return seeds;
 }
 
@@ -191,6 +193,7 @@ public static uint CalculatePlayerInitSeed(uint startSeed)
 	for (var i = 0; i < 13; i++) { // There are 13 possible floors
 		startRng.Next();
 	}
+
 	return startRng.Next(); // Seeds::PlayerInitSeed
 }
 
