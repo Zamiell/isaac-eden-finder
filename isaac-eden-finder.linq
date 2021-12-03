@@ -2,7 +2,9 @@
   <IncludeUncapsulator>false</IncludeUncapsulator>
 </Query>
 
-// Based on: https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
+// Created by Blade
+// Originally modified from:
+// https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
 
 void Main()
 {
