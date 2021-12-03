@@ -1,0 +1,20 @@
+// These are Visual Studio Code settings that should apply to this particular repository
+{
+  // ----------------
+  // Vanilla settings
+  // ----------------
+
+  // This matches the Airbnb JavaScript style guide
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+
+  "files.associations": {
+    "*.anm2": "xml", // anm2 files are just XML files
+  },
+
+  // Linux line endings are used in this project
+  "files.eol": "\n",
+
+  // Automatically removing all trailing whitespace when saving a file
+  "files.trimTrailingWhitespace": true,
+}
