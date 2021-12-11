@@ -10,6 +10,7 @@
 // Originally modified from:
 // https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
 
+// https://moddingofisaac.com/docs/rep/enums/CollectibleType.html
 public static class CollectibleType
 {
   public const int COLLECTIBLE_DIPLOPIA = 347;
@@ -19,6 +20,7 @@ public static class CollectibleType
 	public const int MAX_VANILLA = COLLECTIBLE_MOMS_RING;
 }
 
+// https://moddingofisaac.com/docs/rep/enums/Card.html
 public static class Card
 {
 	public const int CARD_EMPEROR = 5;
@@ -26,6 +28,12 @@ public static class Card
 	public const int CARD_SOUL_JACOB = 97;
 
 	public const int MAX_VANILLA = CARD_SOUL_JACOB;
+}
+
+// https://moddingofisaac.com/docs/rep/enums/LevelStage.html
+public static class LevelStage
+{
+	public const int NUM_STAGES = 14;
 }
 
 void Main()
@@ -213,8 +221,9 @@ public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Card.MAX_
 public static uint CalculatePlayerInitSeed(uint startSeed)
 {
 	var startRng = new Rng(startSeed, 0x3, 0x17, 0x19);
+
 	// Stage Seeds
-	for (var i = 0; i < 13; i++) { // There are 13 possible floors
+	for (var i = 0; i < LevelStage.NUM_STAGES; i++) {
 		startRng.Next();
 	}
 
