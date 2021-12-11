@@ -3,21 +3,37 @@
 </Query>
 
 // isaac-eden-finder Script
-// For The Binding of Isaac: Repentance v1.7.5
-// (with Mom's Ring as the final collectible)
+// For The Binding of Isaac: Repentance v1.7.5+ & Pre v1.7.5
 
 // Created by Blade
 // Originally modified from:
 // https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
 
+public static class Constants
+{
+    public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MEGA_BLAST;
+    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_CANCER;
+    public const int CARD_TO_SEARCH_FOR = Card.CARD_EMPEROR;
+
+    public const bool PRE_PATCH_1_7_5 = true;
+    public const int MAX_COLLECTIBLES =
+        PRE_PATCH_1_7_5
+            ? CollectibleType.NUM_COLLECTIBLES_PRE_PATCH_1_7_5 - 1
+            : CollectibleType.NUM_COLLECTIBLES - 1;
+    public const int MAX_CARDS = Card.NUM_CARDS - 1;
+}
+
 // https://moddingofisaac.com/docs/rep/enums/CollectibleType.html
 public static class CollectibleType
 {
-  public const int COLLECTIBLE_DIPLOPIA = 347;
+    public const int COLLECTIBLE_CANCER = 301;
+    public const int COLLECTIBLE_DIPLOPIA = 347;
+    public const int COLLECTIBLE_MEGA_BLAST = 441;
     public const int COLLECTIBLE_CARD_READING = 660;
     public const int COLLECTIBLE_MOMS_RING = 732;
 
-    public const int MAX_VANILLA = COLLECTIBLE_MOMS_RING;
+    public const int NUM_COLLECTIBLES = 733;
+    public const int NUM_COLLECTIBLES_PRE_PATCH_1_7_5 = 730;
 }
 
 // https://moddingofisaac.com/docs/rep/enums/Card.html
@@ -120,8 +136,7 @@ public static class Card
     public const int CARD_SOUL_FORGOTTEN = 95;
     public const int CARD_SOUL_BETHANY = 96;
     public const int CARD_SOUL_JACOB = 97;
-
-    public const int MAX_VANILLA = CARD_SOUL_JACOB;
+    public const int NUM_CARDS = 98;
 }
 
 // https://moddingofisaac.com/docs/rep/enums/LevelStage.html
@@ -141,9 +156,9 @@ void Main()
         var items = CalculateEdenItems(dropSeed);
 
         if (
-            items.Active == CollectibleType.COLLECTIBLE_DIPLOPIA
-            && items.Passive == CollectibleType.COLLECTIBLE_CARD_READING
-            && items.Card == Card.CARD_CHAOS
+            items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
+            && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
+            && items.Card == Constants.CARD_TO_SEARCH_FOR
         )
         {
             seeds.Add(startSeed);
@@ -160,7 +175,7 @@ void Main()
     seeds.Select(s => SeedToString(s)).ToArray().Dump();
 }
 
-public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = CollectibleType.MAX_VANILLA)
+public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Constants.MAX_COLLECTIBLES)
 {
     var rng = new Rng(dropSeed, 0x1, 0x5, 0x13);
 
@@ -193,7 +208,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Collec
         int itemId = (int)(rng.Next() % itemCount) + 1;
 
         // Black-list
-        if (itemId > CollectibleType.MAX_VANILLA)
+        if (itemId > Constants.MAX_COLLECTIBLES)
         {
             continue;
         }
@@ -309,7 +324,7 @@ public static int GetCard(uint seed, bool rune = false, bool playing = false)
     return (int)(cardRng.Next() % 22) + 1;
 }
 
-public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = CollectibleType.MAX_VANILLA)
+public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = Constants.MAX_COLLECTIBLES)
 {
     var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
@@ -323,7 +338,7 @@ public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = Co
     return seeds;
 }
 
-public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Card.MAX_VANILLA)
+public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Constants.MAX_CARDS)
 {
     var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
@@ -446,7 +461,8 @@ public enum ItemType {
 
 public static ItemType[] ItemConfig = GetItemConfig();
 public static ItemType[] GetItemConfig() {
-    var itemConfig = new ItemType[CollectibleType.MAX_VANILLA + 1];
+    var itemConfigSize = Constants.MAX_COLLECTIBLES + 1;
+    var itemConfig = new ItemType[itemConfigSize];
 
     itemConfig[1] = ItemType.Passive;
     itemConfig[2] = ItemType.Passive;
@@ -1166,9 +1182,12 @@ public static ItemType[] GetItemConfig() {
     itemConfig[727] = ItemType.Passive;
     itemConfig[728] = ItemType.Active;
     itemConfig[729] = ItemType.Active;
-    itemConfig[730] = ItemType.Passive;
-    itemConfig[731] = ItemType.Passive;
-    itemConfig[732] = ItemType.Passive;
+
+    if (!Constants.PRE_PATCH_1_7_5) {
+        itemConfig[730] = ItemType.Passive;
+        itemConfig[731] = ItemType.Passive;
+        itemConfig[732] = ItemType.Passive;
+    }
 
     return itemConfig;
 }
