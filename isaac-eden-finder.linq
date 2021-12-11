@@ -23,8 +23,102 @@ public static class CollectibleType
 // https://moddingofisaac.com/docs/rep/enums/Card.html
 public static class Card
 {
+    public const int CARD_FOOL = 1;
+    public const int CARD_MAGICIAN = 2;
+    public const int CARD_HIGH_PRIESTESS = 3;
+    public const int CARD_EMPRESS = 4;
     public const int CARD_EMPEROR = 5;
+    public const int CARD_HIEROPHANT = 6;
+    public const int CARD_LOVERS = 7;
+    public const int CARD_CHARIOT = 8;
+    public const int CARD_JUSTICE = 9;
+    public const int CARD_HERMIT = 10;
+    public const int CARD_WHEEL_OF_FORTUNE = 11;
+    public const int CARD_STRENGTH = 12;
+    public const int CARD_HANGED_MAN = 13;
+    public const int CARD_DEATH = 14;
+    public const int CARD_TEMPERANCE = 15;
+    public const int CARD_DEVIL = 16;
+    public const int CARD_TOWER = 17;
+    public const int CARD_STARS = 18;
+    public const int CARD_MOON = 19;
+    public const int CARD_SUN = 20;
+    public const int CARD_JUDGEMENT = 21;
+    public const int CARD_WORLD = 22;
+    public const int CARD_CLUBS_2 = 23;
+    public const int CARD_DIAMONDS_2 = 24;
+    public const int CARD_SPADES_2 = 25;
+    public const int CARD_HEARTS_2 = 26;
+    public const int CARD_ACE_OF_CLUBS = 27;
+    public const int CARD_ACE_OF_DIAMONDS = 28;
+    public const int CARD_ACE_OF_SPADES = 29;
+    public const int CARD_ACE_OF_HEARTS = 30;
+    public const int CARD_JOKER = 31;
+    public const int RUNE_HAGALAZ = 32;
+    public const int RUNE_JERA = 33;
+    public const int RUNE_EHWAZ = 34;
+    public const int RUNE_DAGAZ = 35;
+    public const int RUNE_ANSUZ = 36;
+    public const int RUNE_PERTHRO = 37;
+    public const int RUNE_BERKANO = 38;
+    public const int RUNE_ALGIZ = 39;
+    public const int RUNE_BLANK = 40;
+    public const int RUNE_BLACK = 41;
     public const int CARD_CHAOS = 42;
+    public const int CARD_CREDIT = 43;
+    public const int CARD_RULES = 44;
+    public const int CARD_HUMANITY = 45;
+    public const int CARD_SUICIDE_KING = 46;
+    public const int CARD_GET_OUT_OF_JAIL = 47;
+    public const int CARD_QUESTIONMARK = 48;
+    public const int CARD_DICE_SHARD = 49;
+    public const int CARD_EMERGENCY_CONTACT = 50;
+    public const int CARD_HOLY = 51;
+    public const int CARD_HUGE_GROWTH = 52;
+    public const int CARD_ANCIENT_RECALL = 53;
+    public const int CARD_ERA_WALK = 54;
+    public const int RUNE_SHARD = 55;
+    public const int CARD_REVERSE_FOOL = 56;
+    public const int CARD_REVERSE_MAGICIAN = 57;
+    public const int CARD_REVERSE_HIGH_PRIESTESS = 58;
+    public const int CARD_REVERSE_EMPRESS = 59;
+    public const int CARD_REVERSE_EMPEROR = 60;
+    public const int CARD_REVERSE_HIEROPHANT = 61;
+    public const int CARD_REVERSE_LOVERS = 62;
+    public const int CARD_REVERSE_CHARIOT = 63;
+    public const int CARD_REVERSE_JUSTICE = 64;
+    public const int CARD_REVERSE_HERMIT = 65;
+    public const int CARD_REVERSE_WHEEL_OF_FORTUNE = 66;
+    public const int CARD_REVERSE_STRENGTH = 67;
+    public const int CARD_REVERSE_HANGED_MAN = 68;
+    public const int CARD_REVERSE_DEATH = 69;
+    public const int CARD_REVERSE_TEMPERANCE = 70;
+    public const int CARD_REVERSE_DEVIL = 71;
+    public const int CARD_REVERSE_TOWER = 72;
+    public const int CARD_REVERSE_STARS = 73;
+    public const int CARD_REVERSE_MOON = 74;
+    public const int CARD_REVERSE_SUN = 75;
+    public const int CARD_REVERSE_JUDGEMENT = 76;
+    public const int CARD_REVERSE_WORLD = 77;
+    public const int CARD_CRACKED_KEY = 78;
+    public const int CARD_QUEEN_OF_HEARTS = 79;
+    public const int CARD_WILD = 80;
+    public const int CARD_SOUL_ISAAC = 81;
+    public const int CARD_SOUL_MAGDALENE = 82;
+    public const int CARD_SOUL_CAIN = 83;
+    public const int CARD_SOUL_JUDAS = 84;
+    public const int CARD_SOUL_BLUEBABY = 85;
+    public const int CARD_SOUL_EVE = 86;
+    public const int CARD_SOUL_SAMSON = 87;
+    public const int CARD_SOUL_AZAZEL = 88;
+    public const int CARD_SOUL_LAZARUS = 89;
+    public const int CARD_SOUL_EDEN = 90;
+    public const int CARD_SOUL_LOST = 91;
+    public const int CARD_SOUL_LILITH = 92;
+    public const int CARD_SOUL_KEEPER = 93;
+    public const int CARD_SOUL_APOLLYON = 94;
+    public const int CARD_SOUL_FORGOTTEN = 95;
+    public const int CARD_SOUL_BETHANY = 96;
     public const int CARD_SOUL_JACOB = 97;
 
     public const int MAX_VANILLA = CARD_SOUL_JACOB;
@@ -174,21 +268,44 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Collec
 
 public static int GetCard(uint seed, bool rune = false, bool playing = false)
 {
+    var specialCards = new int[] {
+        Card.CARD_CHAOS,
+        Card.CARD_CREDIT,
+        Card.CARD_RULES,
+        Card.CARD_HUMANITY,
+        Card.CARD_SUICIDE_KING,
+        Card.CARD_GET_OUT_OF_JAIL,
+        Card.CARD_QUESTIONMARK,
+        Card.CARD_DICE_SHARD,
+        Card.CARD_EMERGENCY_CONTACT,
+        Card.CARD_HOLY,
+        Card.CARD_HUGE_GROWTH,
+        Card.CARD_ANCIENT_RECALL,
+        Card.CARD_ERA_WALK,
+        Card.CARD_CRACKED_KEY,
+        Card.CARD_WILD,
+    };
     var cardRng = new Rng(seed, 0x3, 0x3, 0x1d);
+
     if (cardRng.Next() % 25 == 0)
     {
-        return (int)(cardRng.Next() % 13) + 42;
+        // Special cards
+        return specialCards[cardRng.Next() % specialCards.Length];
     }
+
     if (rune && cardRng.Next() % 10 == 0)
     {
         // Rune
+        // TODO
     }
+
     if (playing && cardRng.Next() % 5 == 0)
     {
         // Playing card
         return (int)(cardRng.Next() % 9) + 23;
     }
 
+    // Normal card
     return (int)(cardRng.Next() % 22) + 1;
 }
 
