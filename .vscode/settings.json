@@ -9,7 +9,7 @@
   "editor.tabSize": 2,
 
   "files.associations": {
-    "*.linq": "C#", // linq files are just C# files
+    "*.linq": "csharp", // linq files are just C# files
   },
 
   // Linux line endings are used in this project
