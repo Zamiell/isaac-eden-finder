@@ -46,17 +46,21 @@ void Main()
 		var dropSeed = CalculatePlayerSeed(startSeed);
 		var items = CalculateEdenItems(dropSeed);
 
-		if (items.Active == CollectibleType.COLLECTIBLE_DIPLOPIA && items.Passive == CollectibleType.COLLECTIBLE_CARD_READING)
-		// && items.Card == Card.CARD_CHAOS)
+		if (
+			items.Active == CollectibleType.COLLECTIBLE_DIPLOPIA
+			&& items.Passive == CollectibleType.COLLECTIBLE_CARD_READING
+			&& items.Card == Card.CARD_CHAOS
+		)
 		{
 			seeds.Add(startSeed);
 			var seedString = SeedToString(startSeed);
-			seedString.Dump();
+			var formattedSeedString = $"{seedString.Substring(0, 4)} {seedString.Substring(4)}";
+			formattedSeedString.Dump();
 		}
 
 		if (i % 100000000 == 0)
 		{
-			(":" + i).Dump();
+			("On numerical seed: " + i).Dump();
 		}
 	}
 	seeds.Select(s => SeedToString(s)).ToArray().Dump();
