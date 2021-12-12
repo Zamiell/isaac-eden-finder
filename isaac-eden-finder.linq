@@ -9,11 +9,21 @@
 // Originally modified from:
 // https://gist.github.com/bladecoding/5fcc1356bfb0cf26555b0ade7c4fedca
 
+// Things tried:
+// 1) Deck of Cards + Cancer + Emp Card + Chaos Card
+// 2) Deck of Cards + Cancer + Stars Card + Chaos Card
+// 3) Deck of Cards + Cancer + Hermit Card + Chaos Card
+// 4) Deck of Cards + Cancer + anything + Chaos Card
+//    (searched through both normal mode and hard mode for connecting Sacrifice Room)
+// 5) Plan C + Card Reading + ? Card <--
+// 6) Plan C + Card Reading + Wild Card
+// 7) Mystery Gift + TMTRAINER
+
 public static class Constants
 {
-    public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_DECK_OF_CARDS;
-    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_SCAPULAR;
-    public const int CARD_TO_SEARCH_FOR = Card.CARD_EMPEROR;
+    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
+    public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MYSTERY_GIFT;
+    // public const int CARD_TO_SEARCH_FOR = Card.CARD_STARS;
 
     public const bool PRE_PATCH_1_7_5 = true;
     public const int MAX_COLLECTIBLES =
@@ -26,12 +36,15 @@ public static class Constants
 // https://moddingofisaac.com/docs/rep/enums/CollectibleType.html
 public static class CollectibleType
 {
+    public const int COLLECTIBLE_TELEPORT = 44;
     public const int COLLECTIBLE_DECK_OF_CARDS = 85;
     public const int COLLECTIBLE_SCAPULAR = 142;
     public const int COLLECTIBLE_CANCER = 301;
     public const int COLLECTIBLE_DIPLOPIA = 347;
     public const int COLLECTIBLE_MEGA_BLAST = 441;
+    public const int COLLECTIBLE_MYSTERY_GIFT = 515;
     public const int COLLECTIBLE_CARD_READING = 660;
+    public const int COLLECTIBLE_TMTRAINER = 721;
     public const int COLLECTIBLE_MOMS_RING = 732;
 
     public const int NUM_COLLECTIBLES = 733;
@@ -158,15 +171,17 @@ void Main()
         var items = CalculateEdenItems(dropSeed);
 
         if (
-            items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
-            && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
-            && items.Card == Constants.CARD_TO_SEARCH_FOR
+            items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
+            // && items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
+            // && items.Card == Constants.CARD_TO_SEARCH_FOR
         )
         {
             seeds.Add(startSeed);
             var seedString = SeedToString(startSeed);
             var formattedSeedString = $"{seedString.Substring(0, 4)} {seedString.Substring(4)}";
+
             formattedSeedString.Dump();
+            // File.AppendAllText(@"D:\Repositories\isaac-eden-finder\seeds.txt", formattedSeedString + Environment.NewLine);
         }
 
         if (i % 100000000 == 0) // 100 million (with 4.2 billion total seeds)
