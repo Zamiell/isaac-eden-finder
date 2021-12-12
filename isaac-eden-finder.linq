@@ -11,8 +11,8 @@
 
 public static class Constants
 {
-    public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MEGA_BLAST;
-    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_CANCER;
+    public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_DECK_OF_CARDS;
+    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_SCAPULAR;
     public const int CARD_TO_SEARCH_FOR = Card.CARD_EMPEROR;
 
     public const bool PRE_PATCH_1_7_5 = true;
@@ -26,6 +26,8 @@ public static class Constants
 // https://moddingofisaac.com/docs/rep/enums/CollectibleType.html
 public static class CollectibleType
 {
+    public const int COLLECTIBLE_DECK_OF_CARDS = 85;
+    public const int COLLECTIBLE_SCAPULAR = 142;
     public const int COLLECTIBLE_CANCER = 301;
     public const int COLLECTIBLE_DIPLOPIA = 347;
     public const int COLLECTIBLE_MEGA_BLAST = 441;
@@ -167,9 +169,10 @@ void Main()
             formattedSeedString.Dump();
         }
 
-        if (i % 100000000 == 0)
+        if (i % 100000000 == 0) // 100 million (with 4.2 billion total seeds)
         {
-            ("On numerical seed: " + i).Dump();
+            // Uncomment the next line to see the progress
+            // ("On numerical seed: " + i).Dump();
         }
     }
     seeds.Select(s => SeedToString(s)).ToArray().Dump();
