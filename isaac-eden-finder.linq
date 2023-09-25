@@ -21,8 +21,8 @@
 
 public static class Constants
 {
-    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
     public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MYSTERY_GIFT;
+    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
     // public const int CARD_TO_SEARCH_FOR = Card.CARD_STARS;
 
     public const bool PRE_PATCH_1_7_5 = true;
@@ -171,8 +171,8 @@ void Main()
         var items = CalculateEdenItems(dropSeed);
 
         if (
-            items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
-            // && items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
+            items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
+            && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
             // && items.Card == Constants.CARD_TO_SEARCH_FOR
         )
         {
