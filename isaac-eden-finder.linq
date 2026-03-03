@@ -21,11 +21,12 @@
 
 public static class Constants
 {
+    public const bool PRE_PATCH_1_7_5 = false;
+
     public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MYSTERY_GIFT;
     public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
     // public const int CARD_TO_SEARCH_FOR = Card.CARD_STARS;
 
-    public const bool PRE_PATCH_1_7_5 = true;
     public const int MAX_COLLECTIBLES =
         PRE_PATCH_1_7_5
             ? CollectibleType.NUM_COLLECTIBLES_PRE_PATCH_1_7_5 - 1
@@ -186,7 +187,7 @@ void Main()
 
         if (i % 100000000 == 0) // 100 million (with 4.2 billion total seeds)
         {
-            // Uncomment the next line to see the progress
+            // Uncomment the next line to see the progress.
             // ("On numerical seed: " + i).Dump();
         }
     }
