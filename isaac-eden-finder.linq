@@ -24,7 +24,8 @@ public static class Constants
     public const bool PRE_PATCH_1_7_5 = false;
 
     public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MYSTERY_GIFT;
-    public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
+    // public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
+    public const int TRINKET_TO_SEARCH_FOR = TrinketType.TRINKET_SWALLOWED_PENNY
     // public const int CARD_TO_SEARCH_FOR = Card.CARD_STARS;
 
     public const int MAX_COLLECTIBLES =
@@ -50,6 +51,201 @@ public static class CollectibleType
 
     public const int NUM_COLLECTIBLES = 733;
     public const int NUM_COLLECTIBLES_PRE_PATCH_1_7_5 = 730;
+}
+
+// https://moddingofisaac.com/docs/rep/enums/TrinketType.html
+public static class TrinketType
+{
+    public const int TRINKET_SWALLOWED_PENNY = 1;
+    public const int TRINKET_PETRIFIED_POOP = 2;
+    public const int TRINKET_AAA_BATTERY = 3;
+    public const int TRINKET_BROKEN_REMOTE = 4;
+    public const int TRINKET_PURPLE_HEART = 5;
+    public const int TRINKET_BROKEN_MAGNET = 6;
+    public const int TRINKET_ROSARY_BEAD = 7;
+    public const int TRINKET_CARTRIDGE = 8;
+    public const int TRINKET_PULSE_WORM = 9;
+    public const int TRINKET_WIGGLE_WORM = 10;
+    public const int TRINKET_RING_WORM = 11;
+    public const int TRINKET_FLAT_WORM = 12;
+    public const int TRINKET_STORE_CREDIT = 13;
+    public const int TRINKET_CALLUS = 14;
+    public const int TRINKET_LUCKY_ROCK = 15;
+    public const int TRINKET_MOMS_TOENAIL = 16;
+    public const int TRINKET_BLACK_LIPSTICK = 17;
+    public const int TRINKET_BIBLE_TRACT = 18;
+    public const int TRINKET_PAPER_CLIP = 19;
+    public const int TRINKET_MONKEY_PAW = 20;
+    public const int TRINKET_MYSTERIOUS_PAPER = 21;
+    public const int TRINKET_DAEMONS_TAIL = 22;
+    public const int TRINKET_MISSING_POSTER = 23;
+    public const int TRINKET_BUTT_PENNY = 24;
+    public const int TRINKET_MYSTERIOUS_CANDY = 25;
+    public const int TRINKET_HOOK_WORM = 26;
+    public const int TRINKET_WHIP_WORM = 27;
+    public const int TRINKET_BROKEN_ANKH = 28;
+    public const int TRINKET_FISH_HEAD = 29;
+    public const int TRINKET_PINKY_EYE = 30;
+    public const int TRINKET_PUSH_PIN = 31;
+    public const int TRINKET_LIBERTY_CAP = 32;
+    public const int TRINKET_UMBILICAL_CORD = 33;
+    public const int TRINKET_CHILDS_HEART = 34;
+    public const int TRINKET_CURVED_HORN = 35;
+    public const int TRINKET_RUSTED_KEY = 36;
+    public const int TRINKET_GOAT_HOOF = 37;
+    public const int TRINKET_MOMS_PEARL = 38;
+    public const int TRINKET_CANCER = 39;
+    public const int TRINKET_RED_PATCH = 40;
+    public const int TRINKET_MATCH_STICK = 41;
+    public const int TRINKET_LUCKY_TOE = 42;
+    public const int TRINKET_CURSED_SKULL = 43;
+    public const int TRINKET_SAFETY_CAP = 44;
+    public const int TRINKET_ACE_SPADES = 45;
+    public const int TRINKET_ISAACS_FORK = 46;
+    public const int TRINKET_POLAROID_OBSOLETE = 47;
+    public const int TRINKET_MISSING_PAGE = 48;
+    public const int TRINKET_BLOODY_PENNY = 49;
+    public const int TRINKET_BURNT_PENNY = 50;
+    public const int TRINKET_FLAT_PENNY = 51;
+    public const int TRINKET_COUNTERFEIT_PENNY = 52;
+    public const int TRINKET_TICK = 53;
+    public const int TRINKET_ISAACS_HEAD = 54;
+    public const int TRINKET_MAGGYS_FAITH = 55;
+    public const int TRINKET_JUDAS_TONGUE = 56;
+    public const int TRINKET_SOUL = 57;
+    public const int TRINKET_SAMSONS_LOCK = 58;
+    public const int TRINKET_CAINS_EYE = 59;
+    public const int TRINKET_EVES_BIRD_FOOT = 60;
+    public const int TRINKET_LEFT_HAND = 61;
+    public const int TRINKET_SHINY_ROCK = 62;
+    public const int TRINKET_SAFETY_SCISSORS = 63;
+    public const int TRINKET_RAINBOW_WORM = 64;
+    public const int TRINKET_TAPE_WORM = 65;
+    public const int TRINKET_LAZY_WORM = 66;
+    public const int TRINKET_CRACKED_DICE = 67;
+    public const int TRINKET_SUPER_MAGNET = 68;
+    public const int TRINKET_FADED_POLAROID = 69;
+    public const int TRINKET_LOUSE = 70;
+    public const int TRINKET_BOBS_BLADDER = 71;
+    public const int TRINKET_WATCH_BATTERY = 72;
+    public const int TRINKET_BLASTING_CAP = 73;
+    public const int TRINKET_STUD_FINDER = 74;
+    public const int TRINKET_ERROR = 75;
+    public const int TRINKET_POKER_CHIP = 76;
+    public const int TRINKET_BLISTER = 77;
+    public const int TRINKET_SECOND_HAND = 78;
+    public const int TRINKET_ENDLESS_NAMELESS = 79;
+    public const int TRINKET_BLACK_FEATHER = 80;
+    public const int TRINKET_BLIND_RAGE = 81;
+    public const int TRINKET_GOLDEN_HORSE_SHOE = 82;
+    public const int TRINKET_STORE_KEY = 83;
+    public const int TRINKET_RIB_OF_GREED = 84;
+    public const int TRINKET_KARMA = 85;
+    public const int TRINKET_LIL_LARVA = 86;
+    public const int TRINKET_MOMS_LOCKET = 87;
+    public const int TRINKET_NO = 88;
+    public const int TRINKET_CHILD_LEASH = 89;
+    public const int TRINKET_BROWN_CAP = 90;
+    public const int TRINKET_MECONIUM = 91;
+    public const int TRINKET_CRACKED_CROWN = 92;
+    public const int TRINKET_USED_DIAPER = 93;
+    public const int TRINKET_FISH_TAIL = 94;
+    public const int TRINKET_BLACK_TOOTH = 95;
+    public const int TRINKET_OUROBOROS_WORM = 96;
+    public const int TRINKET_TONSIL = 97;
+    public const int TRINKET_NOSE_GOBLIN = 98;
+    public const int TRINKET_SUPER_BALL = 99;
+    public const int TRINKET_VIBRANT_BULB = 100;
+    public const int TRINKET_DIM_BULB = 101;
+    public const int TRINKET_FRAGMENTED_CARD = 102;
+    public const int TRINKET_EQUALITY = 103;
+    public const int TRINKET_WISH_BONE = 104;
+    public const int TRINKET_BAG_LUNCH = 105;
+    public const int TRINKET_LOST_CORK = 106;
+    public const int TRINKET_CROW_HEART = 107;
+    public const int TRINKET_WALNUT = 108;
+    public const int TRINKET_DUCT_TAPE = 109;
+    public const int TRINKET_SILVER_DOLLAR = 110;
+    public const int TRINKET_BLOODY_CROWN = 111;
+    public const int TRINKET_PAY_TO_WIN = 112;
+    public const int TRINKET_LOCUST_OF_WRATH = 113;
+    public const int TRINKET_LOCUST_OF_PESTILENCE = 114;
+    public const int TRINKET_LOCUST_OF_FAMINE = 115;
+    public const int TRINKET_LOCUST_OF_DEATH = 116;
+    public const int TRINKET_LOCUST_OF_CONQUEST = 117;
+    public const int TRINKET_BAT_WING = 118;
+    public const int TRINKET_STEM_CELL = 119;
+    public const int TRINKET_HAIRPIN = 120; // Booster pack #1
+    public const int TRINKET_WOODEN_CROSS = 121;
+    public const int TRINKET_BUTTER = 122;
+    public const int TRINKET_FILIGREE_FEATHERS = 123; // Booster pack #2
+    public const int TRINKET_DOOR_STOP = 124; // Booster pack #3
+    public const int TRINKET_EXTENSION_CORD = 125; // Booster pack #4
+    public const int TRINKET_ROTTEN_PENNY = 126; // Booster pack #5
+    public const int TRINKET_BABY_BENDER = 127;
+    public const int TRINKET_FINGER_BONE = 128;
+    public const int TRINKET_JAW_BREAKER = 129;
+    public const int TRINKET_CHEWED_PEN = 130;
+    public const int TRINKET_BLESSED_PENNY = 131;
+    public const int TRINKET_BROKEN_SYRINGE = 132;
+    public const int TRINKET_SHORT_FUSE = 133; // (legacy: TRINKET_FIRECRACKER)
+    public const int TRINKET_GIGANTE_BEAN = 134; // (legacy: TRINKET_GIANT_BEAN)
+    public const int TRINKET_LIGHTER = 135;
+    public const int TRINKET_BROKEN_PADLOCK = 136;
+    public const int TRINKET_MYOSOTIS = 137;
+    public const int TRINKET_M = 138;
+    public const int TRINKET_TEARDROP_CHARM = 139;
+    public const int TRINKET_APPLE_OF_SODOM = 140;
+    public const int TRINKET_FORGOTTEN_LULLABY = 141;
+    public const int TRINKET_BETHS_FAITH = 142;
+    public const int TRINKET_OLD_CAPACITOR = 143;
+    public const int TRINKET_BRAIN_WORM = 144;
+    public const int TRINKET_PERFECTION = 145;
+    public const int TRINKET_DEVILS_CROWN = 146;
+    public const int TRINKET_CHARGED_PENNY = 147;
+    public const int TRINKET_FRIENDSHIP_NECKLACE = 148;
+    public const int TRINKET_PANIC_BUTTON = 149;
+    public const int TRINKET_BLUE_KEY = 150;
+    public const int TRINKET_FLAT_FILE = 151;
+    public const int TRINKET_TELESCOPE_LENS = 152;
+    public const int TRINKET_MOMS_LOCK = 153;
+    public const int TRINKET_DICE_BAG = 154;
+    public const int TRINKET_HOLY_CROWN = 155;
+    public const int TRINKET_MOTHERS_KISS = 156;
+    public const int TRINKET_TORN_CARD = 157;
+    public const int TRINKET_TORN_POCKET = 158;
+    public const int TRINKET_GILDED_KEY = 159;
+    public const int TRINKET_LUCKY_SACK = 160;
+    public const int TRINKET_WICKED_CROWN = 161;
+    public const int TRINKET_AZAZELS_STUMP = 162;
+    public const int TRINKET_DINGLE_BERRY = 163;
+    public const int TRINKET_RING_CAP = 164;
+    public const int TRINKET_NUH_UH = 165;
+    public const int TRINKET_MODELING_CLAY = 166;
+    public const int TRINKET_POLISHED_BONE = 167;
+    public const int TRINKET_HOLLOW_HEART = 168;
+    public const int TRINKET_KIDS_DRAWING = 169;
+    public const int TRINKET_CRYSTAL_KEY = 170;
+    public const int TRINKET_KEEPERS_BARGAIN = 171;
+    public const int TRINKET_CURSED_PENNY = 172;
+    public const int TRINKET_YOUR_SOUL = 173;
+    public const int TRINKET_NUMBER_MAGNET = 174;
+    public const int TRINKET_STRANGE_KEY = 175;
+    public const int TRINKET_LIL_CLOT = 176;
+    public const int TRINKET_TEMPORARY_TATTOO = 177;
+    public const int TRINKET_SWALLOWED_M80 = 178;
+    public const int TRINKET_RC_REMOTE = 179;
+    public const int TRINKET_FOUND_SOUL = 180;
+    public const int TRINKET_EXPANSION_PACK = 181;
+    public const int TRINKET_BETHS_ESSENCE = 182;
+    public const int TRINKET_THE_TWINS = 183;
+    public const int TRINKET_ADOPTION_PAPERS = 184;
+    public const int TRINKET_CRICKET_LEG = 185;
+    public const int TRINKET_APOLLYONS_BEST_FRIEND = 186;
+    public const int TRINKET_BROKEN_GLASSES = 187;
+    public const int TRINKET_ICE_CUBE = 188;
+    public const int TRINKET_SIGIL_OF_BAPHOMET = 189;
+    public const int NUM_TRINKETS = 190;
 }
 
 // https://moddingofisaac.com/docs/rep/enums/Card.html
@@ -173,7 +369,7 @@ void Main()
 
         if (
             items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
-            && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
+            // && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
             // && items.Card == Constants.CARD_TO_SEARCH_FOR
         )
         {
