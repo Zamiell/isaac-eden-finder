@@ -392,7 +392,7 @@ void Main()
     seeds.Select(s => SeedToString(s)).ToArray().Dump();
 }
 
-public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Constants.MAX_COLLECTIBLES)
+public static EdenItems CalculateEdenItems(uint dropSeed)
 {
     var rng = new Rng(dropSeed, 0x1, 0x5, 0x13);
 
@@ -403,6 +403,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Consta
     var soulHearts = 0;
     if ((rng.Next() % 3) == 0)
     {
+        // TODO: This does not work.
         trinket = (int)(rng.Next() % Constants.MAX_TRINKETS) + 1;
     }
     else if ((rng.Next() & 1) == 0)
@@ -413,7 +414,6 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Consta
         }
         else
         {
-            // Pill
             var pillSeed = rng.Next();
         }
     }
@@ -422,7 +422,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Consta
     var passiveId = 0;
     for (var i = 0; i < 100; i++)
     {
-        int itemId = (int)(rng.Next() % itemCount) + 1;
+        int itemId = (int)(rng.Next() % Constants.MAX_COLLECTIBLES) + 1;
 
         // Black-list
         if (itemId > Constants.MAX_COLLECTIBLES)
@@ -541,13 +541,13 @@ public static int GetCard(uint seed, bool rune = false, bool playing = false)
     return (int)(cardRng.Next() % 22) + 1;
 }
 
-public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = Constants.MAX_COLLECTIBLES)
+public static Rng[] CalculateCollectibleSeeds(uint startSeed)
 {
     var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
     var playerInitRng = new Rng(playerInitSeed, 0x1, 0xB, 0x10);
     var collRng = new Rng(playerInitRng.Next(), 0x1, 0x13, 0x3);
-    var seeds = new Rng[itemCount];
+    var seeds = new Rng[Constants.MAX_COLLECTIBLES];
     for(var i = 0; i < seeds.Length; i++) {
         seeds[i] = new Rng(collRng.Next(), 5, 9, 7);
     }
@@ -555,7 +555,7 @@ public static Rng[] CalculateCollectibleSeeds(uint startSeed, int itemCount = Co
     return seeds;
 }
 
-public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Constants.MAX_CARDS)
+public static Rng[] CalculateCardSeeds(uint startSeed)
 {
     var playerInitSeed = CalculatePlayerInitSeed(startSeed);
 
@@ -564,7 +564,7 @@ public static Rng[] CalculateCardSeeds(uint startSeed, int cardCount = Constants
     playerInitRng.Next();
     playerInitRng.Next();
     var cardsRng = new Rng(playerInitRng.Next(), 0x2, 0x5, 0xf);
-    var seeds = new Rng[cardCount];
+    var seeds = new Rng[Constants.MAX_CARDS];
     for (var i = 0; i < seeds.Length; i++) {
         seeds[i] = new Rng(cardsRng.Next(), 5, 9, 7);
     }
