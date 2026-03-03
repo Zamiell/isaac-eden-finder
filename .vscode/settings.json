@@ -1,20 +1,23 @@
-// These are Visual Studio Code settings that should apply to this particular repository
+// These are Visual Studio Code settings that should apply to this particular repository.
 {
   // ----------------
   // Vanilla settings
   // ----------------
 
-  // This matches the Airbnb JavaScript style guide
+  // This matches the Airbnb JavaScript style guide.
   "editor.rulers": [100],
   "editor.tabSize": 2,
 
   "files.associations": {
-    "*.linq": "csharp", // linq files are just C# files
+    "*.linq": "csharp", // linq files are just C# files.
   },
 
-  // Linux line endings are used in this project
+  // Always use "lf" to be consistent with all platforms.
   "files.eol": "\n",
 
-  // Automatically removing all trailing whitespace when saving a file
+  // Automatically insert a trailing newline when saving a file to match the POSIX standard.
+  "files.insertFinalNewline": true,
+
+  // Automatically remove all trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": true,
 }
