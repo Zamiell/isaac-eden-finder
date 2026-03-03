@@ -25,13 +25,14 @@ public static class Constants
 
     public const int ACTIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_MYSTERY_GIFT;
     // public const int PASSIVE_ITEM_TO_SEARCH_FOR = CollectibleType.COLLECTIBLE_TMTRAINER;
-    public const int TRINKET_TO_SEARCH_FOR = TrinketType.TRINKET_SWALLOWED_PENNY
+    public const int TRINKET_TO_SEARCH_FOR = TrinketType.TRINKET_SWALLOWED_PENNY;
     // public const int CARD_TO_SEARCH_FOR = Card.CARD_STARS;
 
     public const int MAX_COLLECTIBLES =
         PRE_PATCH_1_7_5
             ? CollectibleType.NUM_COLLECTIBLES_PRE_PATCH_1_7_5 - 1
             : CollectibleType.NUM_COLLECTIBLES - 1;
+    public const int MAX_TRINKETS = TrinketType.NUM_TRINKETS - 1;
     public const int MAX_CARDS = Card.NUM_CARDS - 1;
 }
 
@@ -370,6 +371,7 @@ void Main()
         if (
             items.Active == Constants.ACTIVE_ITEM_TO_SEARCH_FOR
             // && items.Passive == Constants.PASSIVE_ITEM_TO_SEARCH_FOR
+            && items.Trinket == Constants.TRINKET_TO_SEARCH_FOR
             // && items.Card == Constants.CARD_TO_SEARCH_FOR
         )
         {
@@ -401,7 +403,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed, int itemCount = Consta
     var soulHearts = 0;
     if ((rng.Next() % 3) == 0)
     {
-        // Trinket
+        trinket = (int)(rng.Next() % Constants.MAX_TRINKETS) + 1;
     }
     else if ((rng.Next() & 1) == 0)
     {
