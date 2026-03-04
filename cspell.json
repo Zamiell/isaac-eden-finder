@@ -24,6 +24,7 @@
         "QUESTIONMARK",
         "SAMSONS",
         "TMTRAINER",
-        "Uncapsulator"
+        "Uncapsulator",
+        "xorshift"
     ]
 }
