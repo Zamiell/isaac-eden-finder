@@ -509,6 +509,7 @@ public static EdenItems CalculateEdenItems(uint dropSeed)
     return new EdenItems(hearts, soulHearts, activeId, passiveId, trinket, card, pill);
 }
 
+// TODO: This does not work, need help from zombolis.
 public static int GetTrinket(uint seed)
 {
     uint maxScore = 0;
