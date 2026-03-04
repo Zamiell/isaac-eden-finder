@@ -509,34 +509,12 @@ public static EdenItems CalculateEdenItems(uint dropSeed)
     return new EdenItems(hearts, soulHearts, activeId, passiveId, trinket, card, pill);
 }
 
-// Emulates 0x63f660 → 0x91d680: pool_weighted_select with filter=22 (trinket pool),
-// entry22=(3,5,20). Pool is in ID order (1..MAX_TRINKETS). Achievement-locked trinkets
-// are unavailable and do NOT advance the seed (confirmed by CheckAvailable at 0x78d4c0).
-//
-// [entity+0x344] = raw entity spawn seed = trinketSeed (set directly at 0x681a07, no pre-xs).
-// The wrong xs(2,7,7) was from 0x6e7980 (non-Eden path) — removed.
-//
-// IMPORTANT: Adjust LockedTrinkets for your save file's achievement state.
-// Full list of achievement-gated IDs from items.xml:
-//   1,13,15,17,21,22,23,28,35,42,49,50,52,54,55,56,57,58,59,60,61,67,74,76,
-//   80,81,83,84,85,91,92,107,110,111,113-128,131,138,141-143,146,147,150,
-//   152-189
-// ID 1 (Swallowed Penny, ach 101) must be unlocked to appear in pool.
-// Confirmed locked by test case "B918 HB47" → trinket 20 (Monkey Paw): {13, 15, 17}.
-private static readonly HashSet<int> LockedTrinkets = new HashSet<int>
-{
-    13,  // Store Credit (ach 118)
-    15,  // Lucky Rock (ach 85)
-    17,  // Black Lipstick (ach 111)
-};
-
 public static int GetTrinket(uint seed)
 {
     uint maxScore = 0;
     int winner = 1;
     for (var i = 1; i <= Constants.MAX_TRINKETS; i++)
     {
-        if (LockedTrinkets.Contains(i)) continue; // unavailable: no seed advance
         seed ^= seed >> 3;
         seed ^= seed << 5;
         seed ^= seed >> 20;
